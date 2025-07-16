@@ -21,12 +21,152 @@
   --button-text: #ffffff;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+/* --- MAIN LAYOUT FOR TIC TAC TOE --- */
+.ttt-app-bg {
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  color: var(--text-primary);
+}
+.ttt-header {
+  margin-top: 48px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.ttt-title {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  color: #1976d2;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.ttt-status {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #424242;
+}
+
+/* --- BOARD --- */
+.ttt-board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary, #f8f9fa);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(48,60,64,0.06);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+}
+
+.ttt-board-row {
+  display: flex;
+}
+
+.ttt-square {
+  width: 70px;
+  height: 70px;
+  margin: 3px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 2.4rem;
+  color: #1976d2;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(24,24,32,0.02);
+  transition: border 0.17s, box-shadow 0.18s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttt-square:disabled {
+  color: #797979;
+  background: #f7f7f5;
+  cursor: not-allowed;
+}
+
+.ttt-square:hover:not(:disabled) {
+  background: #f0f4fa;
+  border: 2px solid #1976d2;
+}
+
+.ttt-square-highlight {
+  border: 2.5px solid #ffca28 !important;
+  background: #fffbe5 !important;
+  color: #0d46a0 !important;
+}
+
+/* --- BUTTONS --- */
+.ttt-btn-restart {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(25, 118, 210, 0.06);
+  transition: background 0.19s, transform 0.19s;
+  letter-spacing: 0.6px;
+}
+
+.ttt-btn-restart:hover {
+  background: #1565c0;
+  transform: translateY(-2px) scale(1.025);
+}
+
+.ttt-btn-restart:active {
+  background: #0d47a1;
+  transform: scale(1.0);
+}
+
+/* --- FOOTER --- */
+.ttt-footer {
+  display: flex;
+  justify-content: center;
+  color: #8e9196;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+.ttt-footer-accent {
+  color: #ffca28;
+}
+
+/* Responsive for Mobile - Scale board/buttons a bit smaller */
+@media (max-width: 600px) {
+  .ttt-board {
+    padding: 10px 5px;
+  }
+  .ttt-square {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+  }
+  .ttt-title {
+    font-size: 1.6rem;
+  }
+  .ttt-btn-restart {
+    font-size: 1rem;
+    padding: 7px 20px;
+  }
 }
 
 .App-logo {
